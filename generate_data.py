@@ -5,7 +5,7 @@
 
 import random
 
-dir_name = 'data/csv'
+dir_name = 'csv'
 stock_min = 1000
 stock_max = 2000
 sales_min = 0
