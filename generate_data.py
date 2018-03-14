@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""This scripts generates sales, waste and stock for given calendar, product, and store data"""
+"""This script generates sales, waste and stock for given calendar, product, and store data"""
 
 import random
 
