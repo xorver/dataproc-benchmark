@@ -17,7 +17,7 @@ from
     on str.store_id = dss.store_id
     inner join calendar_parquet as cal
     on cal.calendar_date = dss.calendar_date
-    where str.store_id = 2 and prd.product_group_id = 3 and cal.calendar_date >= DATE '2018-01-01'
+    where str.store_id = 2 and prd.product_group_id = 1 and cal.calendar_date >= DATE '2018-02-01'
     group by 1,2,3,4,5
 ) as Sales
 full outer join
@@ -30,7 +30,7 @@ full outer join
     on str.store_id = dwt.store_id
     inner join calendar_parquet as cal
     on cal.calendar_date = dwt.calendar_date
-    where str.store_id = 2 and prd.product_group_id = 3 and cal.calendar_date >= DATE '2018-01-01'
+    where str.store_id = 2 and prd.product_group_id = 1 and cal.calendar_date >= DATE '2018-02-01'
     group by 1,2,3,4,5
 ) as Waste
 on Sales.product_id = Waste.product_id
@@ -46,13 +46,11 @@ full outer join
     on str.store_id = dst.store_id
     inner join calendar_parquet as cal
     on cal.calendar_date = dst.calendar_date
-    where str.store_id = 2 and prd.product_group_id = 3 and cal.calendar_date = DATE '2018-02-14'
+    where str.store_id = 2 and prd.product_group_id = 1 and cal.calendar_date = DATE '2018-02-28'
     group by 1,2,3,4,5
 ) as Stock
 on Sales.product_id = Stock.product_id
 and Sales.store_id = Stock.store_id
 and Sales.calendar_date = Stock.calendar_date
 group by 1,2,3,4,5
-
-
-
+order by calendar_date
